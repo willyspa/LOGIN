@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+
+
   def index
     puts "$" * 60
     puts "Voici le message de l'URL :"
@@ -6,6 +8,8 @@ class GossipsController < ApplicationController
     puts "$" * 60
     @first_name = params[:first_name]
     @gossips = Gossip.all
+
+    
   end
 
   def show

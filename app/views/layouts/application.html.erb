@@ -40,10 +40,20 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Login", new_session_path %>></li>
         <li><%= link_to "Sign up", new_user_path %>></li>
+      <% if User.find_by(id: session[:user_id]) %>
+
+        <li>  <%= link_to "Log out", session_path(session[:user_id]), method: :delete %></li>
+
+      <% else %>
+
+      <% end %>
+
       </ul>
     </div>
   </div>
 </nav>
+
+
 
 
   </header>

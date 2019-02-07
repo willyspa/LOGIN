@@ -1,6 +1,17 @@
 <h1>Bienvenue <%= @first_name %> </h1>
+<%# VERIFIE SI IL Y A UNE SESSION %>
+<% if User.find_by(id: session[:user_id]) %>
+ <h2><%= User.find_by(id: session[:user_id]).first_name %> !</h2>
+<% else %>
+<div class="one">---</div>
+
+<% end %>
+
+
 <a style="color: #ff00ff" href="../gossips/new" class="card-link">Créer votre potin</a>
 <p>Voici la liste des potins :</p>
+
+
 <% @gossips.each do |i| %>
 
 <div class="card" style="width: 18rem;">
