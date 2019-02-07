@@ -1,0 +1,5 @@
+<p><h1>Gossip de <%= @gossip.user.first_name %> <%=@gossip.user.last_name %></h1> A posté depuis <a href="../cities/<%=@gossip.user.city.id %>"> <%= @gossip.user.city.name%> </a></p>
+<p><b>Titre du Gossip: </b><%= @gossip.title %><br>
+<b>Contenu: </b><%= @gossip.content %></p>
+<p><a href="../users/<%=@gossip.user.id %>">Voir le profil de <%= @gossip.user.first_name %></a> </p>
+

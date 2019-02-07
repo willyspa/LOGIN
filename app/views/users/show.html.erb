@@ -1,0 +1,7 @@
+<h1><%= @user.first_name %></h1>
+<p><b><%= @user.first_name %> <%= @user.last_name %>, <%= @user.age%> years old and lives in <a href="../cities/<%=@user.city.id %>"> <%= @user.city.name%> </a>, Capital of gossips </b> <br>
+Bio : <%= @user.description %><br>
+
+<b>contacter <%= @user.first_name%></b>: <%= @user.email%>
+ 
+

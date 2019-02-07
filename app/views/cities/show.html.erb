@@ -1,0 +1,13 @@
+<p><h1><%= @city.name %>, town of gossips</h1></p>
+Les potins de la ville :
+<% @city.gossips.each do |i| %>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><b>Auteur du gossip: </b><%= i.user.first_name %></h5>
+    <h5 class="card-text"><b>Titre du gossip:</b> <%= i.title %></h5>
+    <a style="color: #ff00ff" href="../gossips/<%=i.id%>" class="card-link">En savoir plus...</a>
+  </div>
+</div>
+
+<%end%>

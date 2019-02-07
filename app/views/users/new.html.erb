@@ -1,0 +1,21 @@
+<h1><b>Creer un compte<b></h1>
+
+  <form action= <%= users_path %> method="POST">
+
+        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+
+        first_name:<br>
+        <input type="text" name="first_name"><br>
+        last_name:<br>
+        <input type="text" name="last_name"><br>
+        email:<br>
+        <input type="text" name="email"><br>
+        password:<br>
+        <input type="text" name="password"><br>
+        password confirmation:<br>
+        <input type="text" name="password_confirmation"><br>
+
+
+        <input type="submit" value="Valider">
+  </form>

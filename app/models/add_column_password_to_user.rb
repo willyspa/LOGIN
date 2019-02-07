@@ -1,0 +1,2 @@
+class AddColumnPasswordToUser < ApplicationRecord
+end
