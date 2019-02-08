@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
 
+before_action :authenticate_user, only: [:index]
 
   def index
     puts "$" * 60
@@ -9,7 +10,7 @@ class GossipsController < ApplicationController
     @first_name = params[:first_name]
     @gossips = Gossip.all
 
-    
+
   end
 
   def show
@@ -29,19 +30,22 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @anonymous = User.create!(city_id: City.all.sample.id, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::TvShows::SiliconValley.quote, email: Faker::Internet.email, age: Faker::Number.between(1, 100))
-    puts @anonymous.id
-    puts title:params[:title]
-    @gossip = Gossip.new(user_id: @anonymous.id, city_id: @anonymous.city_id, title:params[:title], content:params[:content])
-    if @gossip.save
-    puts 'redirect'
-    flash[:success] = "Bravo, ton potin a été enregistré"
-    redirect_to @gossip
-    else
-    puts "doesn't work"
-    render :new
-    end
+    puts "k"*60
+    puts params
+    puts "k"*60
+
+    g = Gossip.new(user_id:session[:user_id],title:params[:title],content:params[:content])
+
+
+  if g.save
+    redirect_to(root_path)
+    puts "SAAAAVVVVVVEEEE "
   end
+
+  end
+
+
+
 
   def update
     @gossip = Gossip.find(params[:id])
@@ -55,7 +59,17 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to gossips_path
+    redirect_to root_path
   end
+
+  private
+
+ def authenticate_user
+   unless session[:user_id]
+     flash[:danger] = "Please log in."
+     redirect_to new_session_path
+   end
+
+ end
 
 end

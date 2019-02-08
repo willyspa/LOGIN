@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2019_02_07_123457) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "city_id"
-    t.index ["city_id"], name: "index_gossips_on_city_id"
     t.index ["user_id"], name: "index_gossips_on_user_id"
   end
 
@@ -71,5 +69,4 @@ ActiveRecord::Schema.define(version: 2019_02_07_123457) do
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
-  add_foreign_key "gossips", "cities"
 end
