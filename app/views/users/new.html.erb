@@ -15,6 +15,17 @@
         <input type="text" name="password"><br>
         password confirmation:<br>
         <input type="text" name="password_confirmation"><br>
+        City
+
+
+        <SELECT name="name" size="1">
+        <% @city.each do |i| %>
+
+        <OPTION><%=i.name%></option>
+
+        <%end%>
+
+        </SELECT>
 
 
         <input type="submit" value="Valider">
