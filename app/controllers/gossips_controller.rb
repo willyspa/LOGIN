@@ -1,6 +1,6 @@
 class GossipsController < ApplicationController
 
-before_action :authenticate_user, only: [:index]
+before_action :authenticate_user, only: [:index, :create]
 
   def index
     puts "$" * 60
@@ -56,11 +56,13 @@ before_action :authenticate_user, only: [:index]
     end
   end
 
+
   def destroy
-    @gossip = Gossip.find(params[:id])
-    @gossip.destroy
-    redirect_to root_path
+    Gossip.delete(Gossip.find(params[:id]))
+    redirect_to gossips_path
   end
+
+
 
   private
 

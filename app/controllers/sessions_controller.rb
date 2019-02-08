@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       puts "#"*60
       puts "Bon email"
       puts "#"*60
-      #verifie si le passeword du login est égale a celui de la base de données
+      #verifie si le password du login est égale a celui de la base de données
       if my_user.authenticate(params[:password])
         puts "#"*60
         puts "activation de session"
