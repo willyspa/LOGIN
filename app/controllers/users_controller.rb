@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
 
     if params[:password] == params[:password_confirmation]
-      my_city = City.find_by(name:params[:name])
+    
 
-      u = User.new(city_id:my_city.id, first_name:params[:first_name], last_name:params[:last_name], email:params[:email],password:params[:password])
+      u = User.new(city_id:1, first_name:params[:first_name], last_name:params[:last_name], email:params[:email],password:params[:password])
       puts "*"*60
       puts u.password_digest
       puts "*"*60
